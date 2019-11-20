@@ -640,10 +640,11 @@ public class ChooserActivity extends AppCompatActivity
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             ChooserAdapter adapter = mWeakActivity.get().getChooserAdapter();
+            Context context = mWeakActivity.get().getApplicationContext();
 
             switch (item.getItemId()) {
                 case R.id.action_share:
-                    Intent shareIntent = AndroidUtils.getShareIntent(item.getActionView().getContext(),
+                    Intent shareIntent = AndroidUtils.getShareIntent(context,
                             adapter.getItem(
                                     (int) mGridView.getCheckedItemIds()[0]
                                     //first object since we can only have one selected at a time
